@@ -1,0 +1,76 @@
+const OTC_CATEGORIES = [
+  { name: "소화기", icon: "🫀", subCategories: [
+    { id: "위장약", name: "위장약" },
+    { id: "소화제", name: "소화제" },
+    { id: "변비약", name: "변비약" },
+    { id: "설사약", name: "설사약" },
+    { id: "진경제", name: "진경제" },
+    { id: "멀미약", name: "멀미약" },
+  ]},
+  { name: "감기·호흡기", icon: "🤧", subCategories: [
+    { id: "감기약", name: "감기약" },
+    { id: "해열진통제", name: "해열진통제" },
+    { id: "기침약", name: "기침약" },
+    { id: "가래약", name: "가래약" },
+    { id: "비염약", name: "비염약" },
+    { id: "인후통", name: "인후통" },
+  ]},
+  { name: "알레르기", icon: "🤲", subCategories: [
+    { id: "항히스타민", name: "항히스타민" },
+    { id: "알레르기 안약", name: "알레르기 안약" },
+    { id: "피부 가려움", name: "피부 가려움" },
+  ]},
+  { name: "피부", icon: "🩹", subCategories: [
+    { id: "상처", name: "상처" },
+    { id: "습진", name: "습진" },
+    { id: "무좀", name: "무좀" },
+    { id: "여드름", name: "여드름" },
+    { id: "화상", name: "화상" },
+    { id: "흉터", name: "흉터" },
+    { id: "티눈", name: "티눈" },
+  ]},
+  { name: "눈·귀·코", icon: "👁️", subCategories: [
+    { id: "안약", name: "안약" },
+    { id: "점이액", name: "점이액" },
+    { id: "비강스프레이", name: "비강스프레이" },
+  ]},
+  { name: "여성·비뇨", icon: "🌸", subCategories: [
+    { id: "질염", name: "질염" },
+    { id: "생리통", name: "생리통" },
+    { id: "방광염 보조", name: "방광염 보조" },
+  ]},
+  { name: "통증·근골격", icon: "💊", subCategories: [
+    { id: "경구 진통제", name: "경구 진통제" },
+    { id: "파스", name: "파스" },
+    { id: "겔", name: "외용 겔" },
+    { id: "근육통", name: "근육통" },
+  ]},
+  { name: "구강", icon: "🦷", subCategories: [
+    { id: "구내염", name: "구내염" },
+    { id: "잇몸약", name: "잇몸약" },
+    { id: "가글", name: "가글" },
+  ]},
+  { name: "구충", icon: "🐛", subCategories: [
+    { id: "알벤다졸", name: "알벤다졸" },
+    { id: "플루벤다졸", name: "플루벤다졸" },
+  ]},
+  { name: "금연·수면", icon: "😴", subCategories: [
+    { id: "니코틴제제", name: "니코틴제제" },
+    { id: "수면보조제", name: "수면보조제" },
+  ]},
+  { name: "영양·보조", icon: "🌿", subCategories: [
+    { id: "비타민", name: "비타민" },
+    { id: "미네랄", name: "미네랄" },
+    { id: "유산균", name: "유산균" },
+    { id: "간장약", name: "간장약" },
+    { id: "혈행개선", name: "혈행개선" },
+  ]},
+  { name: "한방·생약", icon: "🌱", subCategories: [
+    { id: "한방 감기", name: "한방 감기" },
+    { id: "한방 소화", name: "한방 소화" },
+    { id: "한방 변비", name: "한방 변비" },
+    { id: "한방 피로", name: "한방 피로" },
+    { id: "한방 냉증", name: "한방 냉증" },
+    { id: "한방 경련", name: "한방 경련" },
+  ]},
+];

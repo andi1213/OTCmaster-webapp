@@ -1,0 +1,125 @@
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f5;color:#212121;min-height:100vh;-webkit-font-smoothing:antialiased}
+#app{max-width:600px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:#fff;position:relative}
+
+/* Header */
+header#topbar{position:sticky;top:0;z-index:100;background:#6650A4;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px}
+#topbar-title{font-size:17px;font-weight:600;flex:1}
+.icon-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;padding:4px 8px;line-height:1}
+.hidden{display:none!important}
+
+/* Tabs */
+#mode-tabs{display:flex;background:#fff;border-bottom:2px solid #eee;position:sticky;top:49px;z-index:99}
+.tab{flex:1;padding:12px 4px;border:none;background:none;font-size:13px;font-weight:600;color:#999;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+.tab.active{color:#6650A4;border-bottom-color:#6650A4}
+
+/* Screens */
+.screen{display:none;flex:1;flex-direction:column;overflow-y:auto;padding-bottom:16px}
+.screen.active{display:flex}
+
+/* Search */
+.search-bar{padding:12px 16px;position:sticky;top:97px;z-index:98;background:#fff;border-bottom:1px solid #eee}
+.search-bar input{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:10px;font-size:14px;outline:none;background:#f5f5f5}
+.search-bar input:focus{border-color:#6650A4;background:#fff}
+
+/* Category groups */
+.cat-group{margin:0 16px 4px}
+.cat-group-title{font-size:15px;font-weight:700;padding:14px 0 8px;color:#6650A4;display:flex;align-items:center;gap:6px}
+.sub-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:14px 16px;margin-bottom:8px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.sub-item:active{background:#EDE7F6}
+.sub-item .arrow{color:#bbb;font-size:16px}
+
+/* Content detail */
+.section-label{font-size:13px;font-weight:700;color:#6650A4;margin:16px 16px 8px;letter-spacing:.5px}
+.card{background:#f8f6ff;border-radius:12px;padding:16px;margin:0 16px 10px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card h3{font-size:14px;font-weight:700;color:#6650A4;margin-bottom:8px}
+.card .body{font-size:13px;line-height:1.7;color:#444;white-space:pre-wrap}
+.ing-card{background:#fff;border:1px solid #E8E0F0;border-radius:12px;padding:14px 16px;margin:0 16px 8px}
+.ing-card .name{font-size:14px;font-weight:700;color:#6650A4;margin-bottom:4px}
+.ing-card .desc{font-size:12px;color:#555;line-height:1.5}
+.prod-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 16px;margin:0 16px 8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.prod-card .info .pname{font-size:14px;font-weight:600}
+.prod-card .info .ping{font-size:12px;color:#777;margin-top:2px}
+.prod-card .badge{font-size:11px;background:#EDE7F6;color:#6650A4;padding:3px 8px;border-radius:6px;white-space:nowrap}
+
+/* Notice box */
+.notice-box{text-align:center;padding:60px 20px}
+.notice-icon{font-size:48px;margin-bottom:12px}
+.notice-box h2{font-size:20px;margin-bottom:8px}
+.notice-box p{color:#777;font-size:14px}
+
+/* Section title */
+.section-title{font-size:16px;font-weight:700;padding:16px;color:#333}
+
+/* Patient type list */
+#patient-type-list{padding:0 16px}
+.patient-card{border:1px solid #E8E0F0;border-radius:12px;padding:16px;margin-bottom:10px;cursor:pointer;transition:background .15s}
+.patient-card:active{background:#EDE7F6}
+.patient-card .label{font-size:15px;font-weight:600}
+.patient-card .desc{font-size:12px;color:#777;margin-top:4px}
+
+/* Chat */
+.chat-container{flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:10px}
+.chat-msg{max-width:82%;padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.6;word-break:break-word;white-space:pre-wrap}
+.chat-msg.patient{background:#EDE7F6;color:#333;align-self:flex-start;border-bottom-left-radius:4px}
+.chat-msg.pharmacist{background:#6650A4;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-msg.system{background:#FFF3E0;color:#E65100;align-self:center;text-align:center;font-size:13px;max-width:95%;border-radius:10px}
+.chat-input-area{padding:10px 16px;background:#fff;border-top:1px solid #eee;position:sticky;bottom:0}
+.chat-input-area textarea{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:12px;font-size:14px;outline:none;resize:none;font-family:inherit}
+.chat-input-area textarea:focus{border-color:#6650A4}
+.chat-buttons{display:flex;gap:8px;margin-top:8px}
+
+/* Buttons */
+.btn-primary{background:#6650A4;color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:14px;font-weight:600;cursor:pointer}
+.btn-primary:active{opacity:.8}
+.btn-primary:disabled{background:#ccc}
+.btn-secondary{background:#EDE7F6;color:#6650A4;border:none;border-radius:10px;padding:12px 20px;font-size:14px;font-weight:600;cursor:pointer}
+.btn-accent{background:#2E7D32;color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:14px;font-weight:600;cursor:pointer}
+.btn-full{width:100%}
+.bottom-action{padding:12px 16px;background:#fff;border-top:1px solid #eee;position:sticky;bottom:0}
+
+/* Toggle buttons */
+.toggle-row{display:flex;gap:8px;padding:0 16px 12px}
+.btn-toggle{padding:8px 16px;border:1px solid #ddd;border-radius:8px;background:#fff;font-size:13px;cursor:pointer}
+.btn-toggle.active{background:#6650A4;color:#fff;border-color:#6650A4}
+
+/* Ingredient/Product groups */
+.group-header{background:#EDE7F6;border-radius:10px;padding:12px 16px;margin:8px 16px 4px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:#6650A4}
+.group-header .sel-count{background:#6650A4;color:#fff;font-size:11px;padding:2px 8px;border-radius:6px}
+.group-items{padding:0 16px}
+.check-item{border:1px solid #eee;border-radius:10px;padding:12px 16px;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:background .1s}
+.check-item.selected{background:#EDE7F6;border-color:#D0C0F0}
+.check-item .checkbox{width:20px;height:20px;border:2px solid #ccc;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.check-item.selected .checkbox{background:#6650A4;border-color:#6650A4;color:#fff}
+.check-item .item-info{flex:1}
+.check-item .item-name{font-size:14px;font-weight:600}
+.check-item .item-desc{font-size:12px;color:#777;margin-top:2px}
+.check-item .item-badge{font-size:11px;background:#EDE7F6;color:#6650A4;padding:2px 8px;border-radius:6px}
+
+/* Selected chips */
+.selected-chips{padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:#6650A4;color:#fff;padding:4px 12px;border-radius:16px;font-size:12px;display:flex;align-items:center;gap:4px}
+.chip .remove{cursor:pointer;font-size:14px}
+
+/* Evaluation */
+.eval-container{padding:16px;font-size:14px;line-height:1.8;white-space:pre-wrap}
+.eval-container .loading{text-align:center;padding:40px}
+
+/* Modal */
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:200;display:flex;align-items:center;justify-content:center}
+.modal-content{background:#fff;border-radius:16px;padding:24px;width:90%;max-width:400px}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.modal-header h2{font-size:18px}
+.modal-header .icon-btn{color:#333}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:10px;font-size:14px;outline:none}
+.form-group input:focus,.form-group select:focus{border-color:#6650A4}
+
+/* Loading */
+.loading-dots::after{content:'';animation:dots 1.5s infinite}
+@keyframes dots{0%{content:''}33%{content:'.'}66%{content:'..'}100%{content:'...'}}
+
+/* Toast */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:12px;font-size:14px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
