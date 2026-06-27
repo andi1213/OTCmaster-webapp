@@ -190,7 +190,7 @@ function startSimComorbidity(comorbidityId){
 }
 
 async function startSim(patientId){
-  if(!getApiKey()){ showToast('⚙️ 설정에서 API Key를 먼저 입력하세요'); showSettings(); return; }
+  // API Key는 서버에 내장되어 있거나, 사용자가 설정에서 입력
   if(patientId === 'random'){
     const types = ['adult','child','pregnant','elderly'];
     patientId = types[Math.floor(Math.random()*types.length)];
@@ -637,21 +637,38 @@ function resetSim(){
 // ── API CALL ──
 async function callAPI(endpoint, body){
   const { apiKey, model, messages, systemPrompt } = body;
-  const msgs = [];
-  if(systemPrompt) msgs.push({role:'system', content:systemPrompt});
-  msgs.push(...messages);
   const isEval = endpoint.includes('evaluate');
-  try {
-    const res = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json', 'Authorization':'Bearer '+apiKey},
-      body: JSON.stringify({model: model||'gpt-4o-mini', messages:msgs, temperature: isEval?0.3:0.8, max_tokens: isEval?3000:2000})
-    });
-    const data = await res.json();
-    if(data.error) return {error: data.error.message};
-    return {content: data.choices[0].message.content};
-  } catch(e){
-    return {error: e.message};
+  const userKey = apiKey || getApiKey();
+
+  if(userKey){
+    const msgs = [];
+    if(systemPrompt) msgs.push({role:'system', content:systemPrompt});
+    msgs.push(...messages);
+    try {
+      const res = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json', 'Authorization':'Bearer '+userKey},
+        body: JSON.stringify({model: model||'gpt-4o-mini', messages:msgs, temperature: isEval?0.3:0.8, max_tokens: isEval?3000:2000})
+      });
+      const data = await res.json();
+      if(data.error) return {error: data.error.message};
+      return {content: data.choices[0].message.content};
+    } catch(e){
+      return {error: e.message};
+    }
+  } else {
+    try {
+      const res = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({model: model||getModel(), messages, systemPrompt, mode: isEval?'evaluate':'chat'})
+      });
+      const data = await res.json();
+      if(!res.ok || data.error) return {error: data.error || 'Server error'};
+      return data;
+    } catch(e){
+      return {error: e.message};
+    }
   }
 }
 
